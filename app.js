@@ -9,6 +9,12 @@ mongoose.connect(dbUrl, (err, client)=>{
     console.log("db connect with mongodb")
 })
 
+const bodyParser = require('body-parser')
+const user = require('./routes/user.routes')
+app.use(bodyParser.json())
+app.use('/user', user)
+
+
 app.get('/', (req,res) => {
     res.send('Hello World')
 })
